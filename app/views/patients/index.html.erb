@@ -1,0 +1,7 @@
+<h1> All Patients: </h1>
+
+<ol>
+  <% @patients.old_to_young.each do |patient| %>
+    <li><%= patient.name %></li>
+  <% end  %>
+</ol>

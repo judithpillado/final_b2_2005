@@ -6,4 +6,8 @@ class PatientsController < ApplicationController
     redirect_to "/doctors/#{params[:doctor_id]}"
   end
 
+  def index
+    @patients = Patient.all
+  end
+
 end
