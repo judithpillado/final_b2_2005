@@ -1,0 +1,6 @@
+<h1> <%= @hospital.name %></h1>
+
+<section class= "doctor-info">
+  <p>This hospital has <%= @hospital.doctors.count %> doctors.</p>
+  <p> Universities doctors attented: <%= @hospital.unique_universities_attended %> </p>
+</section>
