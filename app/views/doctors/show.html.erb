@@ -5,10 +5,12 @@
 <p> Education: <%= @doctor.education %></p>
 
 <h3>List of Patients:</h3>
-<section id = "patients">
+<section class = "patients">
   <ul>
     <% @doctor.patients.each do |patient| %>
-    <li> <%= patient.name %></li>
+      <section id="patient-<%= patient.id %>">
+        <li> <%= patient.name %></li> <%= button_to "Delete Patient", "/patients/#{patient.id}", params: { doctor_id: @doctor.id }, method: :delete %> </p>
+    </section>
     <% end %>
   </ul>
 </section>

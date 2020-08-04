@@ -28,11 +28,21 @@ RSpec.describe 'Doctors Show Page' do
     expect(page).to have_content("Education: #{@meredith.education}")
 
 
-    within('#patients') do
+    within('.patients') do
       expect(page).to have_content(@patient1.name)
       expect(page).to have_content(@patient4.name)
       expect(page).to_not have_content(@patient3.name)
     end
+  end
+
+  it "removes a patient from a doctor" do
+    visit "/doctors/#{@meredith.id}"
+
+    within("#patient-#{@patient1.id}") do
+      expect(page).to have_content(@patient1.name)
+      click_button("Delete Patient")
+    end
+    expect(page).to_not have_content("Katie Bryce")
   end
 
 end
